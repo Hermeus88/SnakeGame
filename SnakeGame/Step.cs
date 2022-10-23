@@ -17,7 +17,6 @@ namespace SnakeGame
             this.consoleInterface = consoleInterface;
             this.snake = snake;
             this.rabbit = rabbit;
-            
         }
            
         public void NextStep(object source, ElapsedEventArgs e)
@@ -28,6 +27,12 @@ namespace SnakeGame
             }
 
             Console.SetCursorPosition(0,0);
+
+            if (snake.HeadPositionX == rabbit.RabbitPositionX && snake.HeadPositionY == rabbit.RabbitPositionY)
+            {
+                rabbit.CreateRabbit();
+                snake.GrowSnakeBody();
+            }
 
             if (presedKey.Key == ConsoleKey.RightArrow && previousPresedKey.Key != ConsoleKey.LeftArrow)
             {
@@ -48,11 +53,7 @@ namespace SnakeGame
             else presedKey = previousPresedKey;
 
             previousPresedKey = presedKey;
-
-            if (snake.HeadPositionX == rabbit.RabbitPositionX && snake.HeadPositionY == rabbit.RabbitPositionY) 
-            {
-                rabbit.CreateRabbit();
-            }
+            
             consoleInterface.DrawBoard();
 
         }

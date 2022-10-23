@@ -13,7 +13,7 @@ namespace SnakeGame
         static void Main(string[] args)
         {
             Game game = new Game();
-            autoReset.WaitOne(); 
+            autoReset.WaitOne();
         }
     }
 }

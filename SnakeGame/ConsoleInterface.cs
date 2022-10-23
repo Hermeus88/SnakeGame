@@ -13,6 +13,7 @@ namespace SnakeGame
         public string SnakeHeadSymbol { get; private set; } = "@";
         public string RabbitSymbol { get; private set; } = "*";
         public string SpaceSymbol { get; private set; } = " ";
+        public string SnakeTailSymbol { get; private set; } = "o"; 
 
         private Board brd;
        
@@ -44,6 +45,9 @@ namespace SnakeGame
                             break;
                         case Board.CellStatus.RabbitHead:
                             Console.Write(RabbitSymbol);
+                            break;
+                        case Board.CellStatus.SnakeTail:
+                            Console.Write(SnakeTailSymbol);
                             break;
                         default:
                             Console.Write(cellValue);

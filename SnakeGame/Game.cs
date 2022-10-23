@@ -16,7 +16,7 @@ namespace SnakeGame
 
         private void StartGame()
         {
-            Board board = new Board(14, 7, 2);
+            Board board = new Board(30, 15, 2);
             Snake snake = new Snake(board);
             Rabbit rabbit = new Rabbit(board);
             ConsoleInterface consoleInterface = new ConsoleInterface(board);
@@ -27,9 +27,6 @@ namespace SnakeGame
             timer.Elapsed += step.NextStep;
             timer.AutoReset = true;
             timer.Enabled = true;
-
-            
-            
             
 
 

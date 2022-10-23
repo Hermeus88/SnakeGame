@@ -18,7 +18,6 @@ namespace SnakeGame
             this.CreateRabbit();
 
         }
-        
         public void CreateRabbit()
         {   
             RabbitPositionX = rnd.Next(brd.Left,brd.Right);
