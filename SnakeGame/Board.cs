@@ -9,13 +9,13 @@ namespace SnakeGame
 {
     public class Board
     {
-        
         public enum CellStatus
         {
             Empty,
             Wall,
             RabbitHead,
-            SnakeHead
+            SnakeHead,
+            SnakeTail
         }
         private CellStatus[,] array;
 
@@ -26,7 +26,6 @@ namespace SnakeGame
 
             set { array[i, j] = value; }
         }
-        
 
         //свойство 13-15 строчка
         public int Width { get; private set; }
@@ -38,9 +37,6 @@ namespace SnakeGame
         public int Left { get { return Frame ; } }
         public int Right { get { return Width - Frame - 1; } }
 
-       
-        
-
         public Rabbit rabbit;
         public Snake snake;
 
@@ -51,11 +47,11 @@ namespace SnakeGame
             this.Height = Height;
             this.Frame = Frame;
             array = new CellStatus[Width, Height];
-            FillBoard();
+            CreateWalls();
         }
 
         //Заполнение рамки
-        private void FillBoard()
+        private void CreateWalls()
         {
             for (int k = 0; k < Frame; k++)
             {
@@ -71,11 +67,7 @@ namespace SnakeGame
                     this[i, k] = CellStatus.Wall;                   //Top
                     this[i, k + Height - Frame] = CellStatus.Wall;  //Bottom
                 }
-
             }
-
-          
-
         }
     }
 }
