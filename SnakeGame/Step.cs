@@ -55,8 +55,6 @@ namespace SnakeGame
             previousPresedKey = presedKey;
             
             consoleInterface.DrawBoard();
-
         }
-
     }
 }

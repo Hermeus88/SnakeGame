@@ -9,7 +9,6 @@ namespace SnakeGame
 {
     public class Board
     {
-        
         public enum CellStatus
         {
             Empty,
@@ -37,7 +36,6 @@ namespace SnakeGame
         public int Bottom { get { return Height - Frame - 1; } }
         public int Left { get { return Frame ; } }
         public int Right { get { return Width - Frame - 1; } }
-
 
         public Rabbit rabbit;
         public Snake snake;
@@ -69,10 +67,7 @@ namespace SnakeGame
                     this[i, k] = CellStatus.Wall;                   //Top
                     this[i, k + Height - Frame] = CellStatus.Wall;  //Bottom
                 }
-
             }
-          
-
         }
     }
 }

@@ -8,7 +8,6 @@ namespace SnakeGame
 {
     public class Game
     {
-
         public Game()
         {
            StartGame();
@@ -22,18 +21,10 @@ namespace SnakeGame
             ConsoleInterface consoleInterface = new ConsoleInterface(board);
             Step step = new Step(snake, rabbit, consoleInterface);
 
-            
             Timer timer = new Timer(200);
             timer.Elapsed += step.NextStep;
             timer.AutoReset = true;
             timer.Enabled = true;
-            
-
-
-
-
-
-
         }
     }
 }

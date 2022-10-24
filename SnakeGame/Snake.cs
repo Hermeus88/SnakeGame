@@ -76,7 +76,6 @@ namespace SnakeGame
         }
         public void MoveBody()
         {
-            
             brd[SnakeTail[0].X, SnakeTail[0].Y] = Board.CellStatus.Empty;                             //стираем последнюю часть хвоста
             SnakeTail.RemoveAt(0);                                                                    //удаляем ссылку на последний елемент  хвоста из листа(списка)
                                                                                                       //добавляем в конец списка  
@@ -89,12 +88,10 @@ namespace SnakeGame
             brd[this.HeadPositionX, this.HeadPositionY] = Board.CellStatus.SnakeHead;
             this.previusHeadPositionX = this.HeadPositionX;                                           //перезаписываем позиции
             this.previusHeadPositionY = this.HeadPositionY;
-            
         }
         public void GrowSnakeBody()
         {
             SnakeTail.Add(new Position(this.HeadPositionX, this.HeadPositionY));
-            
         }
     }
 }
