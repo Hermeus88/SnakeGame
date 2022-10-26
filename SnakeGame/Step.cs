@@ -3,7 +3,11 @@ using System.Timers;
 
 namespace SnakeGame
 {
-    public class Step
+    interface IStep
+    {
+
+    }
+    public class Step : IStep
     {
         private Snake snake;
         private Rabbit rabbit;

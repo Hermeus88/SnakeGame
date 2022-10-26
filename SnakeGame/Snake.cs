@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    public class Snake
+    interface ISnake
+    {
+        void MoveRight();
+        void MoveLeft();   
+        void MoveUp();
+        void MoveDown();
+        void MoveBody();
+        void GrowSnakeBody();
+    }
+    public class Snake:ISnake
     {
         public int HeadPositionX { get; private set; }
         public int HeadPositionY { get; private set; }
