@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
- 
     public class Board
     {
         public enum CellStatus
