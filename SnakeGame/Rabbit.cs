@@ -2,10 +2,6 @@
 
 namespace SnakeGame
 {
-    interface IRabbit
-    {
-        void CreateRabbit();
-    }
     public class Rabbit: IRabbit
     {
         public int RabbitPositionX { get; set; }

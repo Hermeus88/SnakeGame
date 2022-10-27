@@ -12,7 +12,7 @@ namespace SnakeGame
         public static AutoResetEvent autoReset = new AutoResetEvent(false);
         static void Main(string[] args)
         {
-            Game game = new Game();
+            IGame game = new Game();
             autoReset.WaitOne();
         }
     }

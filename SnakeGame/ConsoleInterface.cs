@@ -7,17 +7,13 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    interface IConsoleInterface
-    {
-        void DrawBoard();
-    }
     public class ConsoleInterface : IConsoleInterface
     {
-        public string BortSymbol { get; private set; } = "#";
-        public string SnakeHeadSymbol { get; private set; } = "@";
-        public string RabbitSymbol { get; private set; } = "*";
-        public string SpaceSymbol { get; private set; } = " ";
-        public string SnakeTailSymbol { get; private set; } = "o"; 
+        public string BortSymbol { get; set; } = "#";
+        public string SnakeHeadSymbol { get; set; } = "@";
+        public string RabbitSymbol { get; set; } = "*";
+        public string SpaceSymbol { get; set; } = " ";
+        public string SnakeTailSymbol { get; set; } = "o"; 
 
         private Board brd;
        

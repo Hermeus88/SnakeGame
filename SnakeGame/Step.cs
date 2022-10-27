@@ -3,20 +3,16 @@ using System.Timers;
 
 namespace SnakeGame
 {
-    interface IStep
-    {
-
-    }
     public class Step : IStep
     {
-        private Snake snake;
-        private Rabbit rabbit;
-        private ConsoleInterface consoleInterface;
+        private ISnake snake;
+        private IRabbit rabbit;
+        private IConsoleInterface consoleInterface;
        
         private ConsoleKeyInfo presedKey = Console.ReadKey(true);
         private ConsoleKeyInfo previousPresedKey = new ConsoleKeyInfo();
 
-        public Step(Snake snake,Rabbit rabbit,ConsoleInterface consoleInterface )
+        public Step(ISnake snake,IRabbit rabbit,IConsoleInterface consoleInterface )
         {
             this.consoleInterface = consoleInterface;
             this.snake = snake;

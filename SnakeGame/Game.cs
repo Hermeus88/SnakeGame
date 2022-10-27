@@ -6,19 +6,19 @@ using Timer = System.Timers.Timer;
 
 namespace SnakeGame
 {
-    public class Game
+    public class Game:IGame
     {
         public Game()
         {
            StartGame();
         }
 
-        private void StartGame()
+        public void StartGame()
         {
-            Board board = new Board(30, 15, 2);
-            Snake snake = new Snake(board);
-            Rabbit rabbit = new Rabbit(board);
-            ConsoleInterface consoleInterface = new ConsoleInterface(board);
+            IBoard board = new Board(30, 15, 2);
+            ISnake snake = new Snake(board);
+            IRabbit rabbit = new Rabbit(board);
+            IConsoleInterface consoleInterface = new ConsoleInterface(board);
             Step step = new Step(snake, rabbit, consoleInterface);
 
             Timer timer = new Timer(200);

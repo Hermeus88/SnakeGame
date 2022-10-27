@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    public class Board
+    public class Board:IBoard
     {
         public enum CellStatus
         {
@@ -51,7 +51,7 @@ namespace SnakeGame
         }
 
         //Заполнение рамки
-        private void CreateWalls()
+        public void CreateWalls()
         {
             for (int k = 0; k < Frame; k++)
             {
