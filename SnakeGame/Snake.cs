@@ -68,8 +68,6 @@ namespace SnakeGame
         }
         private void Move()
         {
-            //brd[this.HeadPositionX, this.HeadPositionY] = Board.CellStatus.SnakeHead; 
-
             this.MoveBody();
         }
         public void MoveBody()

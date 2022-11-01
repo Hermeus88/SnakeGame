@@ -8,52 +8,25 @@ namespace SnakeGame
         private ISnake snake;
         private IRabbit rabbit;
         private IConsoleInterface consoleInterface;
-       
-        private ConsoleKeyInfo presedKey = Console.ReadKey(true);
-        private ConsoleKeyInfo previousPresedKey = new ConsoleKeyInfo();
+        private ConsoleReadKey consoleReadKey;
 
-        public Step(ISnake snake,IRabbit rabbit,IConsoleInterface consoleInterface )
+        public Step(IConsoleInterface consoleInterface, ISnake snake, IRabbit rabbit, ConsoleReadKey consoleReadKey)
         {
             this.consoleInterface = consoleInterface;
             this.snake = snake;
             this.rabbit = rabbit;
+            this.consoleReadKey = consoleReadKey;
         }
-           
-        public void NextStep(object source, ElapsedEventArgs e)
-        { 
-            if (Console.KeyAvailable)
-            {
-                presedKey = Console.ReadKey(true);
-            }
 
-            Console.SetCursorPosition(0,0);
+        public void NextStep(object source, ElapsedEventArgs e)
+        {
+            consoleReadKey.stepReadKey();
 
             if (snake.HeadPositionX == rabbit.RabbitPositionX && snake.HeadPositionY == rabbit.RabbitPositionY)
             {
                 rabbit.CreateRabbit();
                 snake.GrowSnakeBody();
             }
-
-            if (presedKey.Key == ConsoleKey.RightArrow && previousPresedKey.Key != ConsoleKey.LeftArrow)
-            {
-                snake.MoveRight();
-            }
-            else if (presedKey.Key == ConsoleKey.LeftArrow && previousPresedKey.Key != ConsoleKey.RightArrow)
-            {
-                snake.MoveLeft();
-            }
-            else if (presedKey.Key == ConsoleKey.UpArrow && previousPresedKey.Key != ConsoleKey.DownArrow)
-            {
-                snake.MoveUp();
-            }
-            else if (presedKey.Key == ConsoleKey.DownArrow && previousPresedKey.Key != ConsoleKey.UpArrow)
-            {
-                snake.MoveDown();
-            }
-            else presedKey = previousPresedKey;
-
-            previousPresedKey = presedKey;
-            
             consoleInterface.DrawBoard();
         }
     }

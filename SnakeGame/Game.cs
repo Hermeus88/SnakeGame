@@ -19,8 +19,8 @@ namespace SnakeGame
             ISnake snake = new Snake(board);
             IRabbit rabbit = new Rabbit(board);
             IConsoleInterface consoleInterface = new ConsoleInterface(board);
-            Step step = new Step(snake, rabbit, consoleInterface);
-
+            ConsoleReadKey consoleReadKey = new ConsoleReadKey(snake);
+            Step step = new Step(consoleInterface,snake,rabbit,consoleReadKey);
             Timer timer = new Timer(200);
             timer.Elapsed += step.NextStep;
             timer.AutoReset = true;
