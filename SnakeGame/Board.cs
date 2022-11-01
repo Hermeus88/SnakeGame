@@ -37,8 +37,8 @@ namespace SnakeGame
         public int Left { get { return Frame ; } }
         public int Right { get { return Width - Frame - 1; } }
 
-        public Rabbit rabbit;
-        public Snake snake;
+        private IRabbit rabbit;
+        private ISnake snake;
 
         //конструктор
         public Board(int Width, int Height, int Frame)

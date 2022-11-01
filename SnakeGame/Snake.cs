@@ -11,7 +11,7 @@ namespace SnakeGame
         public int HeadPositionX { get; private set; }
         public int HeadPositionY { get; private set; }
 
-        private Board brd;
+        private IBoard brd;
 
         private int previusHeadPositionX;
 
@@ -21,15 +21,13 @@ namespace SnakeGame
 
 
         //конструктор  17-23
-        public Snake(Board board)           
+        public Snake(IBoard board)           
         {
             brd = board;
             this.HeadPositionX = this.previusHeadPositionX = board.Width / 2;
             this.HeadPositionY = this.previusHeadPositionY = board.Height / 2;
             brd[this.HeadPositionX,this.HeadPositionY] = Board.CellStatus.SnakeHead;
             SnakeTail.Add(new Position(this.HeadPositionX, this.HeadPositionY));
-            //brd[this.HeadPositionX, this.HeadPositionY] = Board.CellStatus.SnakeTail;
-
         }
 
         public void MoveRight()

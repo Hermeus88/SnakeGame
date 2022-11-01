@@ -15,10 +15,10 @@ namespace SnakeGame
         public string SpaceSymbol { get; set; } = " ";
         public string SnakeTailSymbol { get; set; } = "o"; 
 
-        private Board brd;
+        private IBoard brd;
        
         //конструктор
-        public ConsoleInterface(Board brd) 
+        public ConsoleInterface(IBoard brd) 
         {
             this.brd = brd;
             this.DrawBoard();
