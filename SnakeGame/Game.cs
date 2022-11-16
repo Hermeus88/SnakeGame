@@ -11,6 +11,7 @@ namespace SnakeGame
         public Game()
         {
            StartGame();
+           //Program.autoReset.Reset();
         }
 
         public void StartGame()

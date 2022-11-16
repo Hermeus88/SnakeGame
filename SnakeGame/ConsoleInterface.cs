@@ -21,11 +21,13 @@ namespace SnakeGame
         public ConsoleInterface(IBoard brd) 
         {
             this.brd = brd;
+
             this.DrawBoard();
         }
 
         public void DrawBoard()
         {
+            Console.SetCursorPosition(0, 0);
             for (int i = 0; i < brd.Height; i++)
             {
                 for (int k = 0; k < brd.Width; k++)
@@ -53,13 +55,9 @@ namespace SnakeGame
                             Console.Write(cellValue);
                             break;
                     }
-
                 }
                 Console.WriteLine();
             }
-            
         }
-
-   
     }
 }
