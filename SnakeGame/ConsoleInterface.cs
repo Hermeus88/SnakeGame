@@ -7,29 +7,27 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    interface IConsoleInterface
-    {
-        void DrawBoard();
-    }
     public class ConsoleInterface : IConsoleInterface
     {
-        public string BortSymbol { get; private set; } = "#";
-        public string SnakeHeadSymbol { get; private set; } = "@";
-        public string RabbitSymbol { get; private set; } = "*";
-        public string SpaceSymbol { get; private set; } = " ";
-        public string SnakeTailSymbol { get; private set; } = "o"; 
+        public string BortSymbol { get; set; } = "#";
+        public string SnakeHeadSymbol { get; set; } = "@";
+        public string RabbitSymbol { get; set; } = "*";
+        public string SpaceSymbol { get; set; } = " ";
+        public string SnakeTailSymbol { get; set; } = "o"; 
 
-        private Board brd;
+        private IBoard brd;
        
         //конструктор
-        public ConsoleInterface(Board brd) 
+        public ConsoleInterface(IBoard brd) 
         {
             this.brd = brd;
+
             this.DrawBoard();
         }
 
         public void DrawBoard()
         {
+            Console.SetCursorPosition(0, 0);
             for (int i = 0; i < brd.Height; i++)
             {
                 for (int k = 0; k < brd.Width; k++)
@@ -57,13 +55,9 @@ namespace SnakeGame
                             Console.Write(cellValue);
                             break;
                     }
-
                 }
                 Console.WriteLine();
             }
-            
         }
-
-   
     }
 }

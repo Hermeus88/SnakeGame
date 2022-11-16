@@ -45,7 +45,15 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="ConsoleInterface.cs" />
+    <Compile Include="ConsoleReadKey.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IBoard.cs" />
+    <Compile Include="IConsoleInterface.cs" />
+    <Compile Include="IConsoleReadKey.cs" />
+    <Compile Include="IGame.cs" />
+    <Compile Include="IRabbit.cs" />
+    <Compile Include="ISnake.cs" />
+    <Compile Include="IStep.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

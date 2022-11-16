@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    public class Board
+    public class Board:IBoard
     {
         public enum CellStatus
         {
@@ -37,10 +37,6 @@ namespace SnakeGame
         public int Left { get { return Frame ; } }
         public int Right { get { return Width - Frame - 1; } }
 
-        public Rabbit rabbit;
-        public Snake snake;
-
-        //конструктор
         public Board(int Width, int Height, int Frame)
         {
             this.Width = Width;
@@ -51,7 +47,7 @@ namespace SnakeGame
         }
 
         //Заполнение рамки
-        private void CreateWalls()
+        public void CreateWalls()
         {
             for (int k = 0; k < Frame; k++)
             {

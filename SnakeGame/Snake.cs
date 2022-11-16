@@ -6,39 +6,30 @@ using System.Threading.Tasks;
 
 namespace SnakeGame
 {
-    interface ISnake
-    {
-        void MoveRight();
-        void MoveLeft();   
-        void MoveUp();
-        void MoveDown();
-        void MoveBody();
-        void GrowSnakeBody();
-    }
     public class Snake:ISnake
     {
         public int HeadPositionX { get; private set; }
         public int HeadPositionY { get; private set; }
 
-        private Board brd;
+        private IBoard brd;
 
-        private int previusHeadPositionX;
+        //private int previusHeadPositionX;
 
-        private int previusHeadPositionY;
+        //private int previusHeadPositionY;
 
         public List<Position> SnakeTail = new List<Position>();
 
+        public delegate void MoveHead();
+        public MoveHead moveHead { get; set; }
 
         //конструктор  17-23
-        public Snake(Board board)           
+        public Snake(IBoard board)           
         {
             brd = board;
-            this.HeadPositionX = this.previusHeadPositionX = board.Width / 2;
-            this.HeadPositionY = this.previusHeadPositionY = board.Height / 2;
+            this.HeadPositionX /*= this.previusHeadPositionX*/ = board.Width / 2;
+            this.HeadPositionY /*= this.previusHeadPositionY*/ = board.Height / 2;
             brd[this.HeadPositionX,this.HeadPositionY] = Board.CellStatus.SnakeHead;
             SnakeTail.Add(new Position(this.HeadPositionX, this.HeadPositionY));
-            //brd[this.HeadPositionX, this.HeadPositionY] = Board.CellStatus.SnakeTail;
-
         }
 
         public void MoveRight()
@@ -49,6 +40,7 @@ namespace SnakeGame
                 this.HeadPositionX = brd.Left;
             }
             this.Move();
+           
         }
         public void MoveLeft()
         {
@@ -79,8 +71,6 @@ namespace SnakeGame
         }
         private void Move()
         {
-            //brd[this.HeadPositionX, this.HeadPositionY] = Board.CellStatus.SnakeHead; 
-
             this.MoveBody();
         }
         public void MoveBody()
@@ -95,8 +85,8 @@ namespace SnakeGame
             }
             
             brd[this.HeadPositionX, this.HeadPositionY] = Board.CellStatus.SnakeHead;
-            this.previusHeadPositionX = this.HeadPositionX;                                           //перезаписываем позиции
-            this.previusHeadPositionY = this.HeadPositionY;
+            //this.previusHeadPositionX = this.HeadPositionX;                                           //перезаписываем позиции
+            //this.previusHeadPositionY = this.HeadPositionY;
         }
         public void GrowSnakeBody()
         {

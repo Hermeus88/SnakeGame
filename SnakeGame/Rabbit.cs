@@ -2,20 +2,16 @@
 
 namespace SnakeGame
 {
-    interface IRabbit
-    {
-        void CreateRabbit();
-    }
     public class Rabbit: IRabbit
     {
         public int RabbitPositionX { get; set; }
         public int RabbitPositionY { get; set; }
 
-        private Board brd;
+        private IBoard brd;
 
         private Random rnd = new Random();
 
-        public Rabbit(Board board)
+        public Rabbit(IBoard board)
         {
             this.brd = board;
             this.CreateRabbit();
