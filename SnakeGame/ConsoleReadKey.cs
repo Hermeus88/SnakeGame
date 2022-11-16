@@ -17,7 +17,6 @@ namespace SnakeGame
         public ConsoleReadKey(ISnake snake)
         {
             this.snake = (Snake)snake;
-            
         }
 
         public void ReadKey()
@@ -26,6 +25,12 @@ namespace SnakeGame
             {
                 presedKey = Console.ReadKey(true);
             }
+
+            if (presedKey.Key == ConsoleKey.Escape)
+            {
+                Program.autoReset.Set();
+            }
+
             if (presedKey.Key == ConsoleKey.RightArrow && previousPresedKey.Key != ConsoleKey.LeftArrow)
             {
                 snake.moveHead = snake.MoveRight;
@@ -42,10 +47,7 @@ namespace SnakeGame
             {
                 snake.moveHead = snake.MoveDown;
             }
-            else if (presedKey.Key == ConsoleKey.Escape)
-            {
-                Program.autoReset.Set();
-            }
+           
             else presedKey = previousPresedKey;
 
             previousPresedKey = presedKey;
