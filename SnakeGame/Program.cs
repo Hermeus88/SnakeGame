@@ -14,7 +14,7 @@ namespace SnakeGame
         {
             IGame game = new Game();
             autoReset.WaitOne();
-            autoReset.Set();
+            //autoReset.Set();
         }
     }
 }
