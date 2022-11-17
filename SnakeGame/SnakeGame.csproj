@@ -46,6 +46,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="ConsoleInterface.cs" />
     <Compile Include="ConsoleReadKey.cs" />
+    <Compile Include="Key.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IBoard.cs" />
     <Compile Include="IConsoleInterface.cs" />
@@ -53,13 +54,11 @@
     <Compile Include="IGame.cs" />
     <Compile Include="IRabbit.cs" />
     <Compile Include="ISnake.cs" />
-    <Compile Include="IStep.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rabbit.cs" />
     <Compile Include="Snake.cs" />
-    <Compile Include="Step.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

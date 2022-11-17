@@ -2,7 +2,7 @@
 
 namespace SnakeGame
 {
-    public interface IGame
+    public interface IGame//
     {
        void StartGame();
     }

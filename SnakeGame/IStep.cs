@@ -1,7 +1,0 @@
-﻿namespace SnakeGame
-{
-    interface IStep
-    {
-
-    }
-}
